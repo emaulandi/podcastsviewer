@@ -4,3 +4,44 @@
   padding: 2rem;
   text-align: center;
 }
+
+.podcasts {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.podcast {
+  display: inline-block;
+  padding: 0.1em 0.5em;
+  margin: 0.5em;
+  color: black;
+  border-radius: 0.25em;
+}
+
+.categories {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.category {
+  background-color: #1a1a1a;
+  border-radius: 0.25em;
+  padding: 0.1em 0.5em;
+  margin: 0.1em;
+}
+
+.episodes {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.episode {
+  display: inline-block;
+  padding: 0.1em;
+  margin: 0.2em;
+  color: black;
+  border-radius: 0.25em;
+  width: 15em;
+  max-height: 6em;
+  font-size: small;
+}
