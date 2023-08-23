@@ -47,10 +47,12 @@ function App() {
         ))}
       </div>
 
-      <h2 style={{ display: 'inline', margin: '1em' }}>📑 Thèmes</h2>
-      <button style={{ fontStyle: 'italic', fontWeight: 300 }} onClick={() => setCategories(allCategories)}>
-        (Sélectionnez toutes les catégories)
-      </button>
+      <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'space-between' }}>
+        <h2>📑 Thèmes</h2>
+        <button style={{ fontStyle: 'italic', fontWeight: 300 }} onClick={() => setCategories(allCategories)}>
+          Sélectionnez toutes les catégories
+        </button>
+      </div>
       <div className="categories">
         {allCategories.map(c => (
           <div className="category" key={c} style={{ fontWeight: categories.includes(c) ? 900 : 300}}>
@@ -61,10 +63,12 @@ function App() {
         ))}
       </div>
       
-      <h2 style={{ display: 'inline', margin: '1em' }}>🙋🏼‍♀️ Invité.e.s les plus représenté.e.s</h2>
-      <button style={{ fontStyle: 'italic', fontWeight: 300 }} onClick={() => setGuests(allGuests)}>
-        (Sélectionnez l&apos;ensemble des invité.e.s)
-      </button>
+      <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'space-between' }}>
+        <h2>🙋🏼‍♀️ Invité.e.s les plus représenté.e.s</h2>
+        <button style={{ fontStyle: 'italic', fontWeight: 300 }} onClick={() => setGuests(allGuests)}>
+          Sélectionnez l&apos;ensemble des invité.e.s
+        </button>
+      </div>
       <div className="categories">
         {famousGuests.map(g => (
           <div className="category" key={g} style={{ fontWeight: famousGuests.includes(g) ? 900 : 300}}>
