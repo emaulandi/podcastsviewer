@@ -1,6 +1,8 @@
 import { useState } from 'react'
 import './App.css'
 
+import Modal from './components/Modal'
+
 import data from './assets/podcasts_episodes_manual_update.csv'
 import { podcastsConfig } from './config'
 
@@ -14,9 +16,11 @@ function App() {
   const initialCategories = [... new Set(displayData.map(({ category }) => category.split(',')).flat())];
 
   const [categories, setCategories] = useState(initialCategories);
+  const [episodeInModal, setEpisodeInModal] = useState({});
 
   return (
     <>
+      <Modal episode={episodeInModal} onClose={() => setEpisodeInModal({})}/>
       <h1>Explorez les podcasts</h1>
       <h2>Podcasts</h2>
       <div className="podcasts">
@@ -41,9 +45,14 @@ function App() {
       <div className="episodes">
         {displayData
           .filter(({ category }) => categories.some(cat => category.split(',').includes(cat)))
-          .map(({ name, podcast }) => (
-          <div className="episode" key={name} style={{ backgroundColor: podcastsConfig[podcast].color }}>
-            <span>{name}</span>
+          .map(episode => (
+          <div
+            className="episode"
+            key={episode.name}
+            style={{ backgroundColor: podcastsConfig[episode.podcast].color }}
+            onClick={() => setEpisodeInModal(episode)}
+          >
+            <span>{episode.name}</span>
           </div>
         ))}
       </div>

@@ -1,0 +1,24 @@
+/* The Modal (background) */
+.modal {
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.4);
+}
+
+.modal-content {
+  text-align: left;
+  margin: 5% auto;
+  background-color: #242424;
+  transition: 1.1s ease-out;
+  box-shadow: -1rem 1rem 1rem rgba(white, 0.4);
+  filter: blur(0);
+  transform: scale(1);
+  width: 50%;
+  padding: 1em;
+  
+}
