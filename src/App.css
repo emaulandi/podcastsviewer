@@ -37,11 +37,11 @@
 
 .episode {
   display: inline-block;
-  padding: 0.1em;
-  margin: 0.2em;
+  padding: 0.15em;
+  margin: 0.3em;
   color: black;
-  border-radius: 0.25em;
   width: 15em;
-  max-height: 6em;
-  font-size: small;
+  min-height: 8em;
+  max-height: 15em;
+  font-weight: 300;
 }

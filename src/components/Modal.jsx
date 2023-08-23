@@ -24,6 +24,7 @@ const Modal = ({ episode = {}, onClose }) => {
               >
                 {episode.podcast}
               </div>
+              <p>{episode.date}</p>
               {episode.guest && (
                 <p>Avec {
                   episode.guest.split(',').map(g =>
