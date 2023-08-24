@@ -18,7 +18,12 @@ function App() {
     .sort((a, b) => a.date < b.date)
 
   const podcasts = [... new Set(allEpisodes.map(({ podcast }) => podcast))];
-  const allCategories = [... new Set(allEpisodes.map(({ category }) => category.split(',')).flat())];
+  const allCategories = [... new Set(
+    allEpisodes
+    .map(({ category }) => category.split(','))
+    .flat()
+    .filter(category => category !== '')
+  )];
 
   const allGuests = allEpisodes
     .filter(({ category, guest }) => category != 'témoignage' && guest !== "")
