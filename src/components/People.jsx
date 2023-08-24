@@ -4,6 +4,12 @@ import { group } from 'd3-array';
 
 import EpisodesList from './EpisodesList';
 
+const numberEmojis = {
+  2: '2️⃣',
+  3: '3️⃣',
+  4: '4️⃣',
+}
+
 const People = ({ allEpisodes = [], famousGuests = [], onEpisodeClick = () => {} }) => {
 
   const guestsOccurenceByPodcast = famousGuests.map(guest => {
@@ -20,11 +26,15 @@ const People = ({ allEpisodes = [], famousGuests = [], onEpisodeClick = () => {}
 
   return (
     <div className="figure" style={{ textAlign: 'left' }}>
-      {Array.from(mainGuestsByPodcastCount).map(([uniquePodcastCount, guests]) => (
+      {Array.from(mainGuestsByPodcastCount)
+        .sort((a,b) => a[1] > b[1]) // [key, value]
+        .map(([uniquePodcastCount, guests]) => (
         <div key={uniquePodcastCount} style={{ marginTop: '1em' }}>
           <div style={{ marginBottom: '0.8em' }}>
             <span>{
-              `Apparaît dans 
+              `
+              ${numberEmojis[uniquePodcastCount]} 
+              Apparaît dans 
               ${uniquePodcastCount === 4 ? 'tous les' : uniquePodcastCount}
               podcasts`
           }</span>

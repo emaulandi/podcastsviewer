@@ -13,10 +13,21 @@ const Modal = ({ episode = {}, onClose }) => {
         onClose(e);
       }}>
         <div className="modal-content" onClick={e => e.stopPropagation()} style={{ borderTop: `6px solid ${color}`}}>
-          <div style={{ display: 'flex', alignItems: 'flex-start' }}>
-            <img src={episode.image300} />
-            <div style={{ padding: '1em' }}>
-              <h3 style={{ margin: 0 }}>{episode.name}</h3>
+          <div style={{ textAlign: 'right' }}>
+            <button
+              style={{ fontWeight: 300, fontStyle: 'italic' }}
+              onClick={e => {
+                onClose(e);
+              }}
+            >
+              ✕ Fermer
+            </button>
+          </div>
+          <div style={{ display: 'flex', gap: '1em', flexWrap: 'wrap' }}>
+            <div>
+              <img style={{ width: '200px' }} src={episode.image300} />
+            </div>
+            <div>
               <div
                 className="podcast"
                 key={episode.podcast}
@@ -24,35 +35,29 @@ const Modal = ({ episode = {}, onClose }) => {
               >
                 {episode.podcast}
               </div>
-              <div style={{ display: 'flex', flexWrap: 'wrap', gap: '1em' }}>
+              <h3 style={{ margin: 0 }}>{episode.name}</h3>
+              <a href={episode.spotifyUrl} target="_blank" rel="noreferrer">Ecouter sur spotify</a>
+              <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5em' }}>
               {episode.guest && (
-                <p>Avec {
+                <span>Avec {
                   episode.guest.split(',').map(g =>
                     <span key={g}>{g}</span>
                   )}
-                </p>
+                </span>
               )}
-              <p style={{ fontWeight: 300, fontStyle: 'italic' }}>({episode.date})</p>
+              <span style={{ fontWeight: 300, fontStyle: 'italic' }}>({episode.date})</span>
               </div>
-              <p>{
+              <div style={{ marginTop: '0.5em', marginBottom: '0.5em' }}>{
                 episode.category.split(',').map(c =>
                   <span
-                    className="category"
+                    className="chip"
                     key={c}
                   >
-                      {c}
+                    {c}
                   </span>
                 )}
-              </p>
-              <a href={episode.spotifyUrl} target="_blank" rel="noreferrer">Ecouter sur spotify</a>
+              </div>
             </div>
-            <button
-              onClick={e => {
-                onClose(e);
-              }}
-            >
-              ✕
-            </button>
           </div>
           <p style={{ fontWeight: 300 }}>{episode.description}</p>
         </div>

@@ -71,6 +71,10 @@ function App() {
     </div>
   );
 
+  const detailClick = (
+    <p style={{ fontWeight: 300, fontStyle: 'italic'}}>Voir le détail d&apos;un épisode en cliquant dessus</p>
+  );
+
   return (
     <>
       <Header/>
@@ -91,8 +95,12 @@ function App() {
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut vel neque imperdiet, dictum neque vel, tincidunt ipsum. Mauris condimentum, enim a lobortis dapibus, mauris diam gravida ipsum, sit amet rutrum enim felis faucibus est. Donec non sapien bibendum, consequat sapien ornare, convallis nisl. Aenean nec tellus malesuada, convallis magna vel, ornare sapien. Morbi mauris nunc, tempor ut nisl sed, pellentesque dapibus lectus. Nam mollis magna sit amet sem dapibus ornare. Pellentesque aliquam dolor sed ullamcorper finibus.
             </p>
             <p>
-            Aliquam sem diam, eleifend non maximus at, interdum quis nibh. Suspendisse vel ullamcorper velit, in hendrerit turpis. Duis porttitor, sapien vel sagittis porttitor, tellus sapien sollicitudin est, lacinia pharetra tellus quam eget massa. Nam tempus nec dolor vitae euismod. Curabitur vulputate, eros sit amet dignissim congue, est felis imperdiet lorem, vel euismod erat dolor eu ex. Nam ut blandit velit. Cras interdum nunc mauris, ac porta tellus maximus et. Donec at faucibus elit. Sed at tellus faucibus, rhoncus arcu quis, posuere erat. Maecenas sollicitudin sem ut tempus sollicitudin. Nullam accumsan sollicitudin mi sed mattis. Nam sed velit sagittis massa vestibulum molestie sit amet consectetur metus. Mauris sed imperdiet velit.
+            Les podcasts <b>Présages</b> et <b>Sismique</b> ont tous deux démarrés en 2018,
+            suivi de <b>Ozé</b> et <b>Pan(s) B</b> en 2020 <i>(beaucoup d'épisodes du podcast
+            Plan(s) B ont été ajoutés en avril 2021, peut-être ont-ils été ajoutés d'un coup sur Spotify et sont plus anciens).</i>
             </p>
+
+            {detailClick}
           </div>
 
           <Modal episode={episodeInModal} onClose={() => setEpisodeInModal({})}/>
@@ -112,6 +120,12 @@ function App() {
             <p>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut vel neque imperdiet, dictum neque vel, tincidunt ipsum. Mauris condimentum, enim a lobortis dapibus, mauris diam gravida ipsum, sit amet rutrum enim felis faucibus est. Donec non sapien bibendum, consequat sapien ornare, convallis nisl. Aenean nec tellus malesuada, convallis magna vel, ornare sapien. Morbi mauris nunc, tempor ut nisl sed, pellentesque dapibus lectus. Nam mollis magna sit amet sem dapibus ornare. Pellentesque aliquam dolor sed ullamcorper finibus.
             </p>
+            <h2>Les petits chouchous</h2>
+            <p>
+            Plusieurs invité·e·s apparaissent dans plus d&apos;un podcast ! Serait-ce la fame, leur approche transdisciplinaire ou sur des sujets phares ? 
+            À vous de vous faire une idée. 
+            </p>
+            {detailClick}
           </div>
           <div style={{ display: 'flex', justifyContent: 'center' }}>
             <People 
@@ -120,12 +134,25 @@ function App() {
               onEpisodeClick={episode => setEpisodeInModal(episode)}
             />
           </div>
+
+          <div className='textContainer'>
+            <p>
+              On a vu au dessus la liste des épisodes concernés pour les invité·e·s que l'on peut écouter sur 3 ou 4 podcats. Pas d'inquiétudes pour les autres,
+              il sera possible d'explorer un peu plus bas l'ensemble des épisodes par invité·e.
+            </p>
+          </div>
         </section>
 
         <section id="explore">
           <h1>Explorez les podcasts</h1>
-          {podcastsChips}
 
+          <div style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center'}}>
+            <p>Podcasts listés : </p>
+            {podcastsChips}
+          </div>
+
+          {detailClick}
+          
           <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'space-between' }}>
             <h2>📑 Thèmes</h2>
             <button style={{ fontStyle: 'italic', fontWeight: 300 }} onClick={() => setCategories(allCategories)}>
@@ -143,7 +170,7 @@ function App() {
           </div>
           
           <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'space-between' }}>
-            <h2>🙋🏼‍♀️ Invité.e.s les plus représenté.e.s</h2>
+            <h2>🙋🏼‍♀️ Invité·e·s les plus représenté·e·s</h2>
             <button style={{ fontStyle: 'italic', fontWeight: 300 }} onClick={() => setGuests(allGuests)}>
               Sélectionnez l&apos;ensemble des invité.e.s
             </button>
