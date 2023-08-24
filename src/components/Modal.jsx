@@ -24,7 +24,7 @@ const Modal = ({ episode = {}, onClose }) => {
               >
                 {episode.podcast}
               </div>
-              <p>{episode.date}</p>
+              <div style={{ display: 'flex', flexWrap: 'wrap', gap: '1em' }}>
               {episode.guest && (
                 <p>Avec {
                   episode.guest.split(',').map(g =>
@@ -32,6 +32,8 @@ const Modal = ({ episode = {}, onClose }) => {
                   )}
                 </p>
               )}
+              <p style={{ fontWeight: 300, fontStyle: 'italic' }}>({episode.date})</p>
+              </div>
               <p>{
                 episode.category.split(',').map(c =>
                   <span
