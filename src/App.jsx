@@ -13,18 +13,28 @@ import EpisodesList from './components/EpisodesList'
 
 function App() {
 
+  // Episodes
   const allEpisodes = data
     .filter(({ filterOut }) => parseInt(filterOut) !== 1)
     .sort((a, b) => a.date < b.date)
 
+  // Podcasts
   const podcasts = [... new Set(allEpisodes.map(({ podcast }) => podcast))];
-  const allCategories = [... new Set(
-    allEpisodes
+  
+  // Categories
+  const allCategoriesList = allEpisodes
     .map(({ category }) => category.split(','))
     .flat()
-    .filter(category => category !== '')
-  )];
+    .filter(category => category !== '');
+  const allCategories = [... new Set(allCategoriesList)]; // unique
+  const categoryOccurence = allCategoriesList.reduce(function (acc, curr) {
+    return acc[curr] ? ++acc[curr] : acc[curr] = 1, acc
+  }, {});
+  const sortedCategories = Object.entries(categoryOccurence)
+    .sort((a,b) => a[1] < b[1]) // [key, value] -> sorting by value
+    .map(([key]) => key);
 
+  // Guests
   const allGuests = allEpisodes
     .filter(({ category, guest }) => category != 'témoignage' && guest !== "")
     .map(({ guest }) => guest.split(','))
@@ -37,6 +47,7 @@ function App() {
     .sort((a,b) => a[1] < b[1])
     .map(([key]) => key);
 
+  // State
   const [categories, setCategories] = useState(allCategories);
   const [guests, setGuests] = useState(allGuests);
   const [episodeInModal, setEpisodeInModal] = useState({});
@@ -44,7 +55,12 @@ function App() {
   const episodes = allEpisodes
   .filter(({ category, guest }) =>
     categories.some(c => category.split(',').includes(c))
-    && guests.some(g => guest.split(',').includes(g))
+    && (
+      // only one guest selected ? strict filter
+      guests.length === 1
+        ? guests.some(g => guest.split(',').includes(g))
+        : guest === '' || guests.some(g => guest.split(',').includes(g))
+    )
   );
 
   const podcastsChips = (
@@ -117,7 +133,7 @@ function App() {
             </button>
           </div>
           <div className="filters">
-            {allCategories.map(c => (
+            {sortedCategories.map(c => (
               <div className="chip" key={c} style={{ fontWeight: categories.includes(c) ? 900 : 300}}>
                 <button onClick={() => setCategories([c])}>
                   {c}
