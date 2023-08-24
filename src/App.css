@@ -33,17 +33,19 @@
 .episodes {
   display: flex;
   flex-wrap: wrap;
+  gap: 0.5em;
 }
 
 .episode {
   display: inline-block;
   padding: 0.15em;
-  margin: 0.3em;
   color: black;
   width: 15em;
-  min-height: 8em;
+  min-height: 6em;
   max-height: 15em;
   font-weight: 300;
+  background-color: #1a1a1a;
+  color: white;
 }
 
 .month {

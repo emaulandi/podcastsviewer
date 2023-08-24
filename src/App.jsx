@@ -93,7 +93,10 @@ function App() {
           <div
             className="episode"
             key={episode.name}
-            style={{ backgroundColor: podcastsConfig[episode.podcast].color, display: 'flex',  alignItems: 'center', justifyContent: 'center' }}
+            style={{
+                borderTop: `solid 5px ${podcastsConfig[episode.podcast].color}`,
+                display: 'flex',  alignItems: 'center', justifyContent: 'center'
+              }}
             onClick={() => setEpisodeInModal(episode)}
           >
             <span>{episode.name}</span>
