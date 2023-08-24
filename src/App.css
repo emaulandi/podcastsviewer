@@ -24,12 +24,12 @@
   border-radius: 0.25em;
 }
 
-.categories {
+.filters {
   display: flex;
   flex-wrap: wrap;
 }
 
-.category {
+.chip {
   background-color: #1a1a1a;
   border-radius: 0.25em;
   padding: 0.1em 0.5em;
@@ -99,4 +99,8 @@
 .headerContent {
   max-width: 800px;
   padding: 2em;
+}
+
+.figure {
+  max-width: 800px;
 }
