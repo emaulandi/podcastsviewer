@@ -5,6 +5,7 @@ import Modal from './components/Modal'
 
 import data from './assets/podcasts_episodes_manual_update.csv'
 import { podcastsConfig } from './config'
+import Overtime from './components/Overtime'
 
 function App() {
 
@@ -41,6 +42,10 @@ function App() {
     <>
       <Modal episode={episodeInModal} onClose={() => setEpisodeInModal({})}/>
       <h1>Explorez les podcasts</h1>
+      <Overtime
+        episodes={displayData}
+        onEpisodeClick={episode => setEpisodeInModal(episode)}
+      />
       <div className="podcasts">
         {podcasts.map(p => (
           <div className="podcast" key={p} style={{ backgroundColor: podcastsConfig[p].color }}>{p}</div>

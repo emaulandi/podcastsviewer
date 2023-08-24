@@ -19,6 +19,6 @@
   filter: blur(0);
   transform: scale(1);
   width: 50%;
+  max-width: 700px;
   padding: 1em;
-  
 }

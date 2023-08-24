@@ -45,3 +45,20 @@
   max-height: 15em;
   font-weight: 300;
 }
+
+.month {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4em;
+}
+
+.blocGroup {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.episodeBloc {
+  width: 20px;
+  height: 20px;
+  margin: 0.1em;
+}

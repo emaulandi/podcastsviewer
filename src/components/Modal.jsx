@@ -16,7 +16,7 @@ const Modal = ({ episode = {}, onClose }) => {
           <div style={{ display: 'flex', alignItems: 'flex-start' }}>
             <img src={episode.image300} />
             <div style={{ padding: '1em' }}>
-              <h2 style={{ margin: 0 }}>{episode.name}</h2>
+              <h3 style={{ margin: 0 }}>{episode.name}</h3>
               <div
                 className="podcast"
                 key={episode.podcast}
