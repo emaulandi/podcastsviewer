@@ -10,6 +10,7 @@ import Footer from './components/Footer'
 import Header from './components/Header'
 import People from './components/People'
 import EpisodesList from './components/EpisodesList'
+import Gender from './components/Genders'
 
 function App() {
 
@@ -63,16 +64,30 @@ function App() {
     )
   );
 
+  const podcastChip = title => (
+    <span className="podcast" key={title} style={{ backgroundColor: podcastsConfig[title].color }}>
+      <a style={{ fontWeight: 400, color: 'inherit', textDecoration: 'inherit' }} target='_blank' rel="noreferrer" href={podcastsConfig[title].link}>
+        {title}
+      </a>
+    </span>
+    
+  );
   const podcastsChips = (
     <div className="podcasts">
       {podcasts.map(p => (
-        <div className="podcast" key={p} style={{ backgroundColor: podcastsConfig[p].color }}>{p}</div>
+        <div key={p} style={{ margin: '0.3em' }}>
+          {podcastChip(p)}
+        </div>
       ))}
     </div>
   );
 
   const detailClick = (
-    <p style={{ fontWeight: 300, fontStyle: 'italic'}}>Voir le détail d&apos;un épisode en cliquant dessus</p>
+    <p style={{ fontWeight: 300, fontStyle: 'italic'}}>Il est possible de voir le détail d'un épisode en cliquant dessus</p>
+  );
+
+  const separator = (
+    <p style={{ fontWeight: 300, padding: '1em' }}>🎧</p>
   );
 
   return (
@@ -84,20 +99,21 @@ function App() {
             <p>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut vel neque imperdiet, dictum neque vel, tincidunt ipsum. Mauris condimentum, enim a lobortis dapibus, mauris diam gravida ipsum, sit amet rutrum enim felis faucibus est. Donec non sapien bibendum, consequat sapien ornare, convallis nisl. Aenean nec tellus malesuada, convallis magna vel, ornare sapien. Morbi mauris nunc, tempor ut nisl sed, pellentesque dapibus lectus. Nam mollis magna sit amet sem dapibus ornare. Pellentesque aliquam dolor sed ullamcorper finibus.
             </p>
-          </div>
 
-          <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center' }}>
             {podcastsChips}
-          </div>
 
-          <div className='textContainer'>
             <p>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut vel neque imperdiet, dictum neque vel, tincidunt ipsum. Mauris condimentum, enim a lobortis dapibus, mauris diam gravida ipsum, sit amet rutrum enim felis faucibus est. Donec non sapien bibendum, consequat sapien ornare, convallis nisl. Aenean nec tellus malesuada, convallis magna vel, ornare sapien. Morbi mauris nunc, tempor ut nisl sed, pellentesque dapibus lectus. Nam mollis magna sit amet sem dapibus ornare. Pellentesque aliquam dolor sed ullamcorper finibus.
             </p>
             <p>
-            Les podcasts <b>Présages</b> et <b>Sismique</b> ont tous deux démarrés en 2018,
-            suivi de <b>Ozé</b> et <b>Pan(s) B</b> en 2020 <i>(beaucoup d'épisodes du podcast
-            Plan(s) B ont été ajoutés en avril 2021, peut-être ont-ils été ajoutés d'un coup sur Spotify et sont plus anciens).</i>
+            Les podcasts {podcastChip('Présages')} et {podcastChip('Sismique')} ont tous deux démarrés en 2018,
+            suivi de {podcastChip('Ozé. Comprendre. S\'inspirer. S\'engager')} et {podcastChip('Plan(s) B')} en 2020 (beaucoup d'épisodes du podcast
+            Plan(s) B ont été ajoutés en avril 2021, peut-être ont-ils été ajoutés d'un coup sur Spotify et sont plus anciens).
+            </p>
+
+            <p>
+              Voici ci-dessous une petite frise par année des épisodes publiés représentés par un carré de la couleur associée
+              au podcast, une ligne représentant un mois.
             </p>
 
             {detailClick}
@@ -120,10 +136,14 @@ function App() {
             <p>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut vel neque imperdiet, dictum neque vel, tincidunt ipsum. Mauris condimentum, enim a lobortis dapibus, mauris diam gravida ipsum, sit amet rutrum enim felis faucibus est. Donec non sapien bibendum, consequat sapien ornare, convallis nisl. Aenean nec tellus malesuada, convallis magna vel, ornare sapien. Morbi mauris nunc, tempor ut nisl sed, pellentesque dapibus lectus. Nam mollis magna sit amet sem dapibus ornare. Pellentesque aliquam dolor sed ullamcorper finibus.
             </p>
+          </div>
+          {separator}
+          <div className='textContainer'>
             <h2>Les petits chouchous</h2>
             <p>
-            Plusieurs invité·e·s apparaissent dans plus d&apos;un podcast ! Serait-ce la fame, leur approche transdisciplinaire ou sur des sujets phares ? 
-            À vous de vous faire une idée. 
+            Plusieurs invité·e·s apparaissent dans plus d&apos;un podcast ! Serait-ce la <i>fame</i>, leur approche transdisciplinaire ou le fait
+            qu'iels traitent des sujets phares ? 
+            À vous de vous faire une idée 🤓. 
             </p>
             {detailClick}
           </div>
@@ -143,15 +163,99 @@ function App() {
           </div>
         </section>
 
+        <section id="topics">
+          {separator}
+          <div className='textContainer'>
+            <h2>Des approches complémentaires ?</h2>
+            <p>
+              J'imagine que l'on sélectionne chacun·e des ressources qui nous parlent dans le contenu, l'approche <i>(tout en gardant
+              l'importance de se confronter à des idées différentes)</i>. Ces quatre podcasts sont à mon sens assez complémentaires.
+              Je suis plus attirée par défaut vers la posture et l'angle de vue {podcastChip('Présages')} qui dépeind les sujets plutôt
+              depuis un regard liés aux rapports de pouvoirs et aux luttes. Ce n'est pas forcément la tasse de thé 🍵 de certains milieux
+              mobilisant principalement les lunettes des sciences "dures" sans trop regarder du côté des sciences sociales. Pour autant,
+              je trouve la conjonction des deux beaucoup plus complète et riche !
+            </p>
+            <p>
+              Un cas qui ma marqué est l'écoute de l'épisode de {podcastChip('Sismique')} avec <a target='_blank' rel="noreferrer" href='https://open.spotify.com/episode/1LfZAWZAVFM529fssZMxWd
+'>Serge Zaka sur climat et agriculture</a>. Marquée par la lecture juste
+              avant de Rendre la terre aux machines de l'Atelier Paysan, je m'énervais toute seule en ma ngeant mon goûter : <i>"Mais il ne 
+              parle pas des différents types d'agricultures ! Et du rapport aux fournisseurs de l'industrie agricole, et des autres impacts
+              sur l'environnement et gnagnagna !"</i>. Disclaimer : je ne suis pas du tout une experte du sujet et j'ai forcément un point de
+              vue très partiel du sujet (surement beaucoup plus que les intervenant·e·s dans ces podcats !). Mais cela étant dit, je suis allée
+              voir le dernier épisodes de  {podcastChip('Présages')} sur le sujet vaste de l'alimentation et j'ai trouvé tellement riche l'épisode
+              avec <a target='_blank' rel="noreferrer" href='https://open.spotify.com/episode/0EyrFqnCrcSQi0PEwd2esL'>l'association Les Greniers d'abondance</a>, 
+              qui ajoute un point de vue différent et plus global à mon sens. <i>(Et pour des ressources encore plus variées, 
+              rendez-vous plus bas pour lister tous les épisodes liés au sujet de l'alimentation).</i>
+            </p>
+            <p>
+              C'est un rappel pour moi (et vous ?) de continuer à écouter / lire des contenus proche et moins proche de mon point de vue intial
+              pour construire un regard plus englobant et se familiariser avec des manières de voir dfférentes, même si on ne les adopte pas forcément.
+            </p>
+          </div>
+        </section>
+
+        <section id="crosspodcast">
+        {separator}
+          <div className='textContainer'>
+            <h2>Créateurs de podcasts ... aussi invités de podcasts</h2>
+            <p>
+            Petit bonus fun de fin, les créateurs de {podcastChip('Sismique')} et {podcastChip('Ozé. Comprendre. S\'inspirer. S\'engager')}
+            ont été invités sur {podcastChip('Plan(s) B')}. On a également un épisode du podcast {podcastChip('Ozé. Comprendre. S\'inspirer. S\'engager')} 
+            où l'invité est le créateur de {podcastChip('Sismique')}.
+            </p>
+            <p>
+            Je voudrais bien voir un jour la créatrice de {podcastChip('Présages')} invitée également <i>(même si elle n'a pas - encore ? - écrit de livre
+            à l'inverse des deux autres).</i>
+            </p>
+          </div>
+        </section>
+
+        <section id="gender">
+          {separator}
+          <div className='textContainer'>
+            <h2>Petit apparté sur la représentativité des invité·e·s</h2>
+            <p>
+                Il y a telelment d'aspect de représentativité qu'il serait intéressant d'explorer ! Sur l'âge des invité·e·s, leurs
+                professions et domaines d'activité ou leurs nationalités. Il reste un aspect qui est aussi pertinent et plus simple
+                à regarder : le genre des invité·e·s.
+            </p>
+            <p>
+                Alors, a-t-on des femmes invitées dans ces podcasts ?
+            </p>
+            <Gender allEpisodes={allEpisodes} />
+            <p>
+            {podcastChip('Ozé. Comprendre. S\'inspirer. S\'engager')} et {podcastChip('Présages')}
+                se démarquent largement avec plus de 40% de femmes invitées. Note : pour Ozé, un certain nombre d'épisodes sont de type "témoignages"
+                pour relater le parcours des invité·e·s et sont peut-être moins orienté expertise <i>(ces épisodes sont des fois indiqués avec la mention #Parcours
+                dans le titre)</i>
+            </p>
+            
+          </div>
+          
+        </section>
+
         <section id="explore">
+          {separator}
           <h1>Explorez les podcasts</h1>
 
-          <div style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center'}}>
-            <p>Podcasts listés : </p>
-            {podcastsChips}
+          <div className='textContainer'>
+            <p>À vous d'explorer maintenant ! Il est possible de filtrer par thème et par invité·e.</p>
           </div>
+          <p>Podcasts listés : </p>
+          {podcastsChips}
 
           {detailClick}
+
+          <div className='textContainer'>
+            <p>
+              La catégorisation par thème est ici tout à fait subjective et toujours en cours. Le sujet <b>alimentation</b> est chapeau pour
+              les sujets d'agriculture par exemple. Le thème <b>intériorité</b> par de ce qui nous traverse, nos doutes, nos biais et nos manières
+              d'expérimenter le monde. Les <b>luttes</b> englobent la perspectives qui questionnent les rapports de pouvoirs.
+            </p>
+            <p>
+              Un épisode peut bien sûr être lié à plusieurs thèmes. Le fichier original et la catégorisation sont accessible sur github (voir bas de page).
+            </p>
+          </div>
           
           <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'space-between' }}>
             <h2>📑 Thèmes</h2>
