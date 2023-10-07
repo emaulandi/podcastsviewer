@@ -98,20 +98,33 @@ function App() {
         <section id="intro">
           <div className='textContainer'>
             <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut vel neque imperdiet, dictum neque vel, tincidunt ipsum. Mauris condimentum, enim a lobortis dapibus, mauris diam gravida ipsum, sit amet rutrum enim felis faucibus est. Donec non sapien bibendum, consequat sapien ornare, convallis nisl. Aenean nec tellus malesuada, convallis magna vel, ornare sapien. Morbi mauris nunc, tempor ut nisl sed, pellentesque dapibus lectus. Nam mollis magna sit amet sem dapibus ornare. Pellentesque aliquam dolor sed ullamcorper finibus.
+            Peut-être comme vous, j'aime de plus en plus écouter des podcasts. J'ai plusieurs favoris selon les thématiques, dont un est le vaste domaine de l'écologie :
+            réchauffement climatique, résilience, monde des idées, luttes sociales, projet de société ...
+            En fait sur cette thématique, j'ai quatre préférés :
             </p>
 
             {podcastsChips}
 
             <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut vel neque imperdiet, dictum neque vel, tincidunt ipsum. Mauris condimentum, enim a lobortis dapibus, mauris diam gravida ipsum, sit amet rutrum enim felis faucibus est. Donec non sapien bibendum, consequat sapien ornare, convallis nisl. Aenean nec tellus malesuada, convallis magna vel, ornare sapien. Morbi mauris nunc, tempor ut nisl sed, pellentesque dapibus lectus. Nam mollis magna sit amet sem dapibus ornare. Pellentesque aliquam dolor sed ullamcorper finibus.
-            </p>
-            <p>
-            Les podcasts {podcastChip('Présages')} et {podcastChip('Sismique')} ont tous deux démarrés en 2018,
-            suivi de {podcastChip('Ozé. Comprendre. S\'inspirer. S\'engager')} et {podcastChip('Plan(s) B')} en 2020 (beaucoup d'épisodes du podcast
-            Plan(s) B ont été ajoutés en avril 2021, peut-être ont-ils été ajoutés d'un coup sur Spotify et sont plus anciens).
+              Chaque podcast a une approche assez différente, même si on y retouve des sujets et invité·e·s similaires. Le fait de les écouter de temps en temps
+              en les mixant ajoute de la richesse dans mon quotidien. Et pour aller un peu plus loin, je me suis demandé à quel points ils étaient semblables ou
+              différents sur les thèmes abordées, les invité·e·s, si ils existaient depuis longtemps ... Il me manquait également un outil qui me permette de voir
+              plus facilement les épisodes de ces quatre podcasts pour un thème donné.
             </p>
 
+            <p>
+              Je vous propose donc une petite balade avec moi pour explorer cela. Vous y trouverez une rapide approche historique, les invité·e·s chouchous,
+              un questionnement sur leurs approches et un petite apparté sur la représentativité des invité·e·s. Et à la fin, vous pourrez explorer les épisodes par thème !
+            </p>
+            
+          </div>
+          {separator}
+          <div className='textContainer'>
+            <p>
+              Les podcasts {podcastChip('Présages')} et {podcastChip('Sismique')} ont tous deux démarrés en 2018,
+              suivi de {podcastChip('Ozé. Comprendre. S\'inspirer. S\'engager')} et {podcastChip('Plan(s) B')} en 2020 (beaucoup d'épisodes du podcast
+              Plan(s) B ont été ajoutés en avril 2021, peut-être ont-ils été ajoutés d'un coup sur Spotify et sont plus anciens).
+            </p>
             <p>
               Voici ci-dessous une petite frise par année des épisodes publiés représentés par un carré de la couleur associée
               au podcast, une ligne représentant un mois.
@@ -163,19 +176,20 @@ function App() {
             <h2>Des approches complémentaires ?</h2>
             <p>
               J'imagine que l'on sélectionne chacun·e des ressources qui nous parlent dans le contenu, l'approche <i>(tout en gardant
-              l'importance de se confronter à des idées différentes)</i>. Ces quatre podcasts sont à mon sens assez complémentaires.
-              Je suis plus attirée par défaut vers la posture et l'angle de vue {podcastChip('Présages')} qui dépeind les sujets plutôt
-              depuis un regard liés aux rapports de pouvoirs et aux luttes. Ce n'est pas forcément la tasse de thé 🍵 de certains milieux
+              l'importance de se confronter à des idées différentes)</i>.
+              Je suis personnellement plus attirée par défaut vers la posture et l'angle de vue {podcastChip('Présages')} qui dépeint les sujets plutôt
+              depuis un regard lié aux rapports de pouvoirs et aux luttes. Ce n'est pas forcément la tasse de thé 🍵 de certains milieux
               mobilisant principalement les lunettes des sciences "dures" sans trop regarder du côté des sciences sociales. Pour autant,
               je trouve la conjonction des deux beaucoup plus complète et riche !
             </p>
             <p>
               Un cas qui ma marqué est l'écoute de l'épisode de {podcastChip('Sismique')} avec <a target='_blank' rel="noreferrer" href='https://open.spotify.com/episode/1LfZAWZAVFM529fssZMxWd
 '>Serge Zaka sur climat et agriculture</a>. Marquée par la lecture juste
-              avant de Rendre la terre aux machines de l'Atelier Paysan, je m'énervais toute seule en ma ngeant mon goûter : <i>"Mais il ne 
-              parle pas des différents types d'agricultures ! Et du rapport aux fournisseurs de l'industrie agricole, et des autres impacts
+              avant de <a target='_blank' rel="noreferrer" href='https://www.seuil.com/ouvrage/reprendre-la-terre-aux-machines-l-atelier-paysan/9782021478174'>Reprendre la terre aux machines</a>  de
+               l'Atelier Paysan, je m'énervais toute seule en mangeant mon goûter : <i>"Mais il ne 
+              parle pas des différents types d'agriculture ! Et du rapport aux fournisseurs de l'industrie agricole, et des autres impacts
               sur l'environnement et gnagnagna !"</i>. Disclaimer : je ne suis pas du tout une experte du sujet et j'ai forcément un point de
-              vue très partiel du sujet (surement beaucoup plus que les intervenant·e·s dans ces podcats !). Mais cela étant dit, je suis allée
+              vue très partiel (beaucoup plus que les intervenant·e·s dans ces podcats !). Mais cela étant dit, je suis allée
               voir le dernier épisodes de  {podcastChip('Présages')} sur le sujet vaste de l'alimentation et j'ai trouvé tellement riche l'épisode
               avec <a target='_blank' rel="noreferrer" href='https://open.spotify.com/episode/0EyrFqnCrcSQi0PEwd2esL'>l'association Les Greniers d'abondance</a>, 
               qui ajoute un point de vue différent et plus global à mon sens. <i>(Et pour des ressources encore plus variées, 
@@ -183,7 +197,7 @@ function App() {
             </p>
             <p>
               C'est un rappel pour moi (et vous ?) de continuer à écouter / lire des contenus proche et moins proche de mon point de vue intial
-              pour construire un regard plus englobant et se familiariser avec des manières de voir dfférentes, même si on ne les adopte pas forcément.
+              pour construire un regard plus englobant et se familiariser avec des manières de voir différentes, même si on ne les adopte pas forcément.
             </p>
           </div>
         </section>
@@ -193,7 +207,7 @@ function App() {
           <div className='textContainer'>
             <h2>Créateurs de podcasts ... aussi invités de podcasts</h2>
             <p>
-            Petit bonus fun de fin, les créateurs de {podcastChip('Sismique')} et {podcastChip('Ozé. Comprendre. S\'inspirer. S\'engager')}
+            Petit bonus, les créateurs de {podcastChip('Sismique')} et {podcastChip('Ozé. Comprendre. S\'inspirer. S\'engager')}
             ont été invités sur {podcastChip('Plan(s) B')}. On a également un épisode du podcast {podcastChip('Ozé. Comprendre. S\'inspirer. S\'engager')} 
             où l'invité est le créateur de {podcastChip('Sismique')}.
             </p>
@@ -209,7 +223,7 @@ function App() {
           <div className='textContainer'>
             <h2>Petit apparté sur la représentativité des invité·e·s</h2>
             <p>
-                Il y a telelment d'aspect de représentativité qu'il serait intéressant d'explorer ! Sur l'âge des invité·e·s, leurs
+                Il y a tellement d'aspects de représentativité qu'il serait intéressant d'explorer ! Sur l'âge des invité·e·s, leurs
                 professions et domaines d'activité ou leurs nationalités. Il reste un aspect qui est aussi pertinent et plus simple
                 à regarder : le genre des invité·e·s.
             </p>
@@ -218,7 +232,7 @@ function App() {
             </p>
             <Gender allEpisodes={allEpisodes} />
             <p>
-            {podcastChip('Ozé. Comprendre. S\'inspirer. S\'engager')} et {podcastChip('Présages')}
+            {podcastChip('Présages')} et {podcastChip('Ozé. Comprendre. S\'inspirer. S\'engager')} 
                 se démarquent largement avec plus de 40% de femmes invitées. Note : pour Ozé, un certain nombre d'épisodes sont de type "témoignages"
                 pour relater le parcours des invité·e·s et sont peut-être moins orienté expertise <i>(ces épisodes sont des fois indiqués avec la mention #Parcours
                 dans le titre)</i>
@@ -243,7 +257,7 @@ function App() {
           <div className='textContainer'>
             <p>
               La catégorisation par thème est ici tout à fait subjective et toujours en cours. Le sujet <b>alimentation</b> est chapeau pour
-              les sujets d'agriculture par exemple. Le thème <b>intériorité</b> par de ce qui nous traverse, nos doutes, nos biais et nos manières
+              les sujets d'agriculture par exemple. Le thème <b>intériorité</b> parle de ce qui nous traverse, nos doutes, nos biais et nos manières
               d'expérimenter le monde. Les <b>luttes</b> englobent la perspectives qui questionnent les rapports de pouvoirs.
             </p>
             <p>
