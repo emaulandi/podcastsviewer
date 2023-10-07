@@ -93,6 +93,7 @@ function App() {
   return (
     <>
       <Header/>
+      <Modal episode={episodeInModal} onClose={() => setEpisodeInModal({})}/>
       <div className='container'>
         <section id="intro">
           <div className='textContainer'>
@@ -119,8 +120,6 @@ function App() {
             {detailClick}
           </div>
 
-          <Modal episode={episodeInModal} onClose={() => setEpisodeInModal({})}/>
-
           <div style={{ display: 'flex', justifyContent: 'center' }}>
             <div className="figure">
               <Overtime
@@ -132,11 +131,6 @@ function App() {
         </section>
 
         <section id="people">
-          <div className='textContainer'>
-            <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut vel neque imperdiet, dictum neque vel, tincidunt ipsum. Mauris condimentum, enim a lobortis dapibus, mauris diam gravida ipsum, sit amet rutrum enim felis faucibus est. Donec non sapien bibendum, consequat sapien ornare, convallis nisl. Aenean nec tellus malesuada, convallis magna vel, ornare sapien. Morbi mauris nunc, tempor ut nisl sed, pellentesque dapibus lectus. Nam mollis magna sit amet sem dapibus ornare. Pellentesque aliquam dolor sed ullamcorper finibus.
-            </p>
-          </div>
           {separator}
           <div className='textContainer'>
             <h2>Les petits chouchous</h2>
